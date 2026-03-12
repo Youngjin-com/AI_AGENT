@@ -19,6 +19,7 @@ def main():
         # GPT-5.1이 처리 가능한 이미지 파일만 허용
         type=["png", "jpg", "webp", "gif"],
     )
+
     if uploaded_file:
         if user_input := st.chat_input("궁금한 내용을 입력해 주세요!"):
             # 읽어온 파일을 Base64로 인코딩
@@ -41,7 +42,7 @@ def main():
             st.write(user_input)  # 사용자의 질문
             st.image(uploaded_file)  # 업로드한 이미지 표시
             st.markdown("### 답변")
-            st.write_stream(llm.stream(query))  # GPT-4o의 응답
+            st.write_stream(llm.stream(query))
 
     else:
         st.write("먼저 이미지를 업로드해 주세요😇")

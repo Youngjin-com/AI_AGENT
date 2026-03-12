@@ -64,8 +64,8 @@ def create_web_browsing_agent():
 
     summarization_middleware = SummarizationMiddleware(
         model=llm,
-        max_tokens_before_summary=8000,
-        messages_to_keep=10,
+        trigger=("tokens", 8000),
+        keep=("messages", 10),
     )
 
     agent = create_agent(
@@ -84,6 +84,7 @@ def main():
     init_page()
     init_messages()
     web_browsing_agent = create_web_browsing_agent()
+    config = {"configurable": {"thread_id": st.session_state["thread_id"]}}
 
     for msg in st.session_state.messages:
         st.chat_message(msg["role"]).write(msg["content"])
@@ -96,9 +97,7 @@ def main():
             with st.spinner("검색 중..."):
                 response = web_browsing_agent.invoke(
                     {"messages": [{"role": "user", "content": prompt}]},
-                    config={
-                        "configurable": {"thread_id": st.session_state["thread_id"]},
-                    },
+                    config,
                 )
 
             ai_message = response["messages"][-1].content

@@ -54,7 +54,7 @@ class CodeInterpreterClient:
         prompt = textwrap.dedent(
             f"""\
             다음 코드를 실행하고 결과를 반환해 주세요.
-            파일 읽기에 실패한 경우, 가능한 범위 내에서 수정하고 다시 실행해 주세요.
+            파일 읽기에 실패하면, 가능한 범위 내에서 수정하고 재실행하세요.
 
             ```python
             {code}

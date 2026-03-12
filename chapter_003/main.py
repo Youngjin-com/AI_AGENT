@@ -13,13 +13,13 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 MODEL_PRICES = {
     "input": {
         "gpt-5-mini": 0.25 / 1_000_000,  # GPT-5 mini
-        "gpt-5.1": 1.25 / 1_000_000,  # GPT-5.1
+        "gpt-5": 1.25 / 1_000_000,  # GPT-5.1
         "claude-sonnet-4-5-20250929": 3 / 1_000_000,
         "gemini-2.5-flash": 0.30 / 1_000_000,
     },
     "output": {
         "gpt-5-mini": 2 / 1_000_000,
-        "gpt-5.1": 10 / 1_000_000,
+        "gpt-5": 10 / 1_000_000,
         "claude-sonnet-4-5-20250929": 15 / 1_000_000,
         "gemini-2.5-flash": 2.50 / 1_000_000,
     },
@@ -45,7 +45,7 @@ def select_model():
         "Temperature:", min_value=0.0, max_value=2.0, value=0.0, step=0.1
     )
 
-    models = ("GPT-5 mini", "GPT-5.1", "Claude Sonnet 4.5", "Gemini 2.5 Flash")
+    models = ("GPT-5 mini", "GPT-5", "Claude Sonnet 4.5", "Gemini 2.5 Flash")
     model = st.sidebar.radio("Choose a model:", models)
 
     if model == "GPT-5 mini":
@@ -55,8 +55,8 @@ def select_model():
             model=st.session_state.model_name,
         )
 
-    elif model == "GPT-5.1":
-        st.session_state.model_name = "gpt-5.1"
+    elif model == "GPT-5":
+        st.session_state.model_name = "gpt-5"
         return ChatOpenAI(
             temperature=temperature,
             model=st.session_state.model_name,

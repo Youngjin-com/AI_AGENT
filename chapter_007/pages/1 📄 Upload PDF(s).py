@@ -1,4 +1,4 @@
-import fitz  # PyMuPDF
+import fitz
 import streamlit as st
 from langchain_community.vectorstores import FAISS
 from langchain_openai import OpenAIEmbeddings

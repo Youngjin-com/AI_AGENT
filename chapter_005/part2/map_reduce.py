@@ -73,7 +73,9 @@ def init_chain():
     text_split = RunnableLambda(
         lambda x: [{"content": doc} for doc in text_splitter.split_text(x["content"])]
     )
+
     text_concat = RunnableLambda(lambda x: {"content": "\n".join(x)})
+
     map_reduce_chain = (
         text_split | summarize_chain.map() | text_concat | summarize_chain
     )
@@ -126,7 +128,7 @@ def get_content(url):
                 return res[0].page_content
             else:
                 return None
-        except:
+        except Exception as e:
             st.error(f"Error occurred: {e}")
             st.write(traceback.format_exc())
             return None
