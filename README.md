@@ -1,5 +1,9 @@
 # 📚 랭체인으로 구현하는 AI 서비스 & 에이전트 개발 입문
 
+<p align="left">
+  <img src="https://www.youngjin.com/images/book_cover/9788931482850.jpg" height="350px" style="border: 1px solid grey;">
+</p>
+
 본 저장소는 도서의 실습 예제 코드를 담고 있습니다.
 원활한 실습을 위해 아래 안내에 따라 파이썬 가상환경을 설정하고 필수 패키지를 설치해 주세요.
 
