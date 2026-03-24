@@ -64,7 +64,7 @@ def main():
     )
 
     if uploaded_file:
-        if user_input := st.chat_input("이미지를 어떻게 가공하고 싶은지 알려줘!"):
+        if user_input := st.chat_input("이미지를 어떻게 가공할지 알려주세요!"):
             # 읽은 파일을 Base64로 인코딩
             image_base64 = base64.b64encode(uploaded_file.read()).decode()
             image = f"data:image/jpeg;base64,{image_base64}"
