@@ -1,6 +1,15 @@
 **/__pycache__/
-*.pkl
-*.pickle
+*.py[cod]
+*$py.class
+venv/
+venv312/
+env/
+.venv/
 **/.env
 **/secrets.toml
+*.db
+*.faiss
 **/.DS_Store
+Thumbs.db
+.vscode/
+.idea/
